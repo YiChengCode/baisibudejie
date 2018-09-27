@@ -24,6 +24,7 @@
         self.publishBtn = publishBtn;
         [publishBtn setImage:[UIImage imageNamed:@"tabBar_publish_icon"] forState:UIControlStateNormal];
         [publishBtn setImage:[UIImage imageNamed:@"tabBar_publish_click_icon"] forState:UIControlStateSelected];
+        [publishBtn addTarget:self action:@selector(pushlishBtnClick:) forControlEvents:UIControlEventTouchUpInside];
         
     }
     return self;
@@ -50,6 +51,19 @@
         tempView.frame = CGRectMake(buttonX, buttonY, buttonW, buttonH);
         index++;
     }
+}
+
+- (void)pushlishBtnClick:(UIButton *)sender {
+    
+    CABasicAnimation *scaleAni = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+    scaleAni.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
+    scaleAni.duration = 0.15;
+    scaleAni.repeatCount = 1;
+    scaleAni.autoreverses = YES;
+    scaleAni.fromValue = @(1);
+    scaleAni.toValue = @(1.2);
+    [sender.layer addAnimation:scaleAni forKey:nil];
+
 }
 
 @end

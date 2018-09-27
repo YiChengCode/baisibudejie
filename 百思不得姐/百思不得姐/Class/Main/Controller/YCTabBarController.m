@@ -72,6 +72,27 @@
     
 }
 
+- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
+    
+    int index = (int)[self.tabBar.items indexOfObject:item];
 
+    NSMutableArray *items = [NSMutableArray array];
+    for (UIView *tempView in self.tabBar.subviews) {
+        
+        if ([tempView isKindOfClass:NSClassFromString(@"UITabBarButton")]) {
+            [items addObject:tempView];
+        }
+    }
+    
+    // 添加动画
+    CABasicAnimation *scaleAni = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+    scaleAni.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
+    scaleAni.duration = 0.15;
+    scaleAni.repeatCount = 1;
+    scaleAni.autoreverses = YES;
+    scaleAni.fromValue = @(1);
+    scaleAni.toValue = @(1.2);
+    [[items[index] layer] addAnimation:scaleAni forKey:nil];
+}
 
 @end
