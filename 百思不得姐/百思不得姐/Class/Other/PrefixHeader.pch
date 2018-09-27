@@ -1,0 +1,29 @@
+//
+//  PrefixHeader.pch
+//  百思不得姐
+//
+//  Created by 廖易诚 on 17/6/15.
+//  Copyright © 2017年 liaoyicheng. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import "UIView+GFFrame.h"
+#import "UIBarButtonItem+GFItem.h"
+
+
+/*****************  屏幕宽高  ******************/
+#define  YCScreenHeight [UIScreen mainScreen].bounds.size.height
+#define  YCScreenWidth [UIScreen mainScreen].bounds.size.width
+
+/*****************  屏幕适配  ******************/
+#define iphone6p (YCScreenWidth == 414)
+#define iphone6 (YCScreenWidth == 375)
+#define iphone5 (YCScreenWidth == 320)
+#define iphone4 (YCScreenWidth == 320)
+#define kScaleX [UIScreen mainScreen].bounds.size.width / 375.0
+
+#define RGBAColor(r,g,b,a) [UIColor colorWithRed:(r/255.0) green:(g/255.0) blue:(b/255.0) alpha:a]
+
+#endif /* PrefixHeader_pch */
